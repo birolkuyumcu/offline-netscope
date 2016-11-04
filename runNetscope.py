@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 """
+Netscope
 "A web-based - offline - tool for visualizing neural network topologies.
 It currently supports UC Berkeley's Caffe framework."
 github.com/ethereon/netscope
+****
+Offline Version of Netscope
+https://github.com/birolkuyumcu/offline-netscope
 @author: bluekid70@gmail.com
 """
 
@@ -30,11 +34,13 @@ w = threading.Thread(name= "Worker,",  target=worker)
 def my_service():
     app = QApplication(sys.argv)
     webView = QWebView()
+    webView.setWindowTitle('Offline Version of Netscope ')
     webView.load(QUrl('http://127.1.1.1:8000'))
     webView.show()
     app.exec_()
     httpd.shutdown()
     os.exit(0)
+
 
 s = threading.Thread(name= "Servis", target=my_service)
 
